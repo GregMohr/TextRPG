@@ -5,7 +5,7 @@ namespace TextRPG
 {
 
     public class Program
-    {// Potential additions: Player character generation; Randomize encounter sizes; Adventure/Exploration/Puzzles;
+    {// Potential additions: ; Adventure/Exploration/Puzzles;
      // Random Encounter generator; Loot; Inventory; Experience/Levelling
         public static List<Human> players = new List<Human>();      
         public static List<Monster> monsters = new List<Monster>();
@@ -18,8 +18,14 @@ namespace TextRPG
             Console.WriteLine("#     A Journey Begins...    #");
             Console.WriteLine("#                            #");
             Console.WriteLine("##############################");
-            Console.WriteLine();            
-            //init game objects
+            Console.WriteLine();
+            // Character generation
+            // auto-generate character
+            // You are in a town. You can...
+            // 1 - Adventure | 2 - Heal | 3 - Visit The Casino | 4 - Visit the Shop
+
+            // Randomize encounter sizes
+            // init encounter objects
             Human jed = new Wizard("Jed");
             Human hank = new Ninja("Hank");
             Human frank = new Samurai("Frank");
@@ -110,10 +116,7 @@ namespace TextRPG
                                     break;
                                 }
                                 Console.WriteLine();            
-                            }     
-
-
-                            // actionIdx = Console.Read();//refactor to Console.Read
+                            }
                             System.Console.WriteLine();
                             
                             var selectedAction = player.playerActions[actionIdx - 1].actionMethod;
@@ -155,5 +158,11 @@ namespace TextRPG
             }
             Console.Read();
         }
+        // public void Encounter(){
+
+        // }
+        // public void Shop(){
+
+        // }
     }
 }
