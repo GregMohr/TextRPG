@@ -1,5 +1,5 @@
---temp-output:c:\Users\Greg\Desktop\CodingDojo\CSharp\1 C# Fundamentals\TextRPG\obj\Debug\netcoreapp1.0\
---out:c:\Users\Greg\Desktop\CodingDojo\CSharp\1 C# Fundamentals\TextRPG\bin\Debug\netcoreapp1.0\TextRPG.dll
+--temp-output:C:\Users\Greg\Desktop\CodingDojo\CSharp\1 C# Fundamentals\TextRPG\obj\Debug\netcoreapp1.0\
+--out:C:\Users\Greg\Desktop\CodingDojo\CSharp\1 C# Fundamentals\TextRPG\bin\Debug\netcoreapp1.0\TextRPG.dll
 --define:DEBUG
 --define:TRACE
 --define:NETCOREAPP1_0
@@ -87,13 +87,13 @@
 --reference:C:\Users\Greg\.nuget\packages\System.Threading.Timer\4.0.1\ref\netstandard1.2\System.Threading.Timer.dll
 --reference:C:\Users\Greg\.nuget\packages\System.Xml.ReaderWriter\4.0.11\ref\netstandard1.3\System.Xml.ReaderWriter.dll
 --reference:C:\Users\Greg\.nuget\packages\System.Xml.XDocument\4.0.11\ref\netstandard1.3\System.Xml.XDocument.dll
-c:\Users\Greg\Desktop\CodingDojo\CSharp\1 C# Fundamentals\TextRPG\Human.cs
-c:\Users\Greg\Desktop\CodingDojo\CSharp\1 C# Fundamentals\TextRPG\Monster.cs
-c:\Users\Greg\Desktop\CodingDojo\CSharp\1 C# Fundamentals\TextRPG\Ninja.cs
-c:\Users\Greg\Desktop\CodingDojo\CSharp\1 C# Fundamentals\TextRPG\PlayerAction.cs
-c:\Users\Greg\Desktop\CodingDojo\CSharp\1 C# Fundamentals\TextRPG\Program.cs
-c:\Users\Greg\Desktop\CodingDojo\CSharp\1 C# Fundamentals\TextRPG\Samurai.cs
-c:\Users\Greg\Desktop\CodingDojo\CSharp\1 C# Fundamentals\TextRPG\Skeleton.cs
-c:\Users\Greg\Desktop\CodingDojo\CSharp\1 C# Fundamentals\TextRPG\Spider.cs
-c:\Users\Greg\Desktop\CodingDojo\CSharp\1 C# Fundamentals\TextRPG\Wizard.cs
-c:\Users\Greg\Desktop\CodingDojo\CSharp\1 C# Fundamentals\TextRPG\Zombie.cs
+C:\Users\Greg\Desktop\CodingDojo\CSharp\1 C# Fundamentals\TextRPG\Program.cs
+C:\Users\Greg\Desktop\CodingDojo\CSharp\1 C# Fundamentals\TextRPG\GameObjects\Humans\Human.cs
+C:\Users\Greg\Desktop\CodingDojo\CSharp\1 C# Fundamentals\TextRPG\GameObjects\Humans\Ninja.cs
+C:\Users\Greg\Desktop\CodingDojo\CSharp\1 C# Fundamentals\TextRPG\GameObjects\Humans\PlayerAction.cs
+C:\Users\Greg\Desktop\CodingDojo\CSharp\1 C# Fundamentals\TextRPG\GameObjects\Humans\Samurai.cs
+C:\Users\Greg\Desktop\CodingDojo\CSharp\1 C# Fundamentals\TextRPG\GameObjects\Humans\Wizard.cs
+C:\Users\Greg\Desktop\CodingDojo\CSharp\1 C# Fundamentals\TextRPG\GameObjects\Monsters\Monster.cs
+C:\Users\Greg\Desktop\CodingDojo\CSharp\1 C# Fundamentals\TextRPG\GameObjects\Monsters\Skeleton.cs
+C:\Users\Greg\Desktop\CodingDojo\CSharp\1 C# Fundamentals\TextRPG\GameObjects\Monsters\Spider.cs
+C:\Users\Greg\Desktop\CodingDojo\CSharp\1 C# Fundamentals\TextRPG\GameObjects\Monsters\Zombie.cs
