@@ -21,14 +21,15 @@ namespace TextRPG
         }
         public Monster FoePrompt(){
             int cnt2 = 1;
-            System.Console.WriteLine("Please select opponent:");
+            // foe menu
+            Console.WriteLine("Please select opponent:");
             foreach(Monster monster in Program.monsters){
-                System.Console.Write(cnt2 + " - " + monster.type + "(" + monster.health + ")  ");
+                Console.Write(cnt2 + " - " + monster.type + "(" + monster.health + ")  ");
                 cnt2++;
             }
-            System.Console.WriteLine();
-            System.Console.Write("Selection(1-" + (cnt2 - 1) + "): ");
-            
+            Console.WriteLine();
+            Console.Write("Selection(1-" + (cnt2 - 1) + "): ");
+            // wait for correct input 
             int foe;           
             while(true){
                 ConsoleKeyInfo result = Console.ReadKey(true);
@@ -36,11 +37,12 @@ namespace TextRPG
                 {
                     var numVal = Char.GetNumericValue(result.KeyChar);
                     foe = (int)numVal;
-                    System.Console.WriteLine();            
+                    Console.WriteLine();            
                     break;
                 }
-                System.Console.WriteLine();            
+                Console.WriteLine();            
             }                                  
+            Console.WriteLine(); 
             return Program.monsters[foe - 1];
         }
         public int Attack()
@@ -49,7 +51,7 @@ namespace TextRPG
             int dmg = this.strength * 5;
             foe.health = foe.health - dmg;
             Console.ForegroundColor = ConsoleColor.Green;
-            System.Console.WriteLine(this.name + " attacked " + foe.type + " for " + dmg + " damage!");
+            Console.WriteLine(this.name + " attacked " + foe.type + " for " + dmg + " damage!");
             Console.ForegroundColor = ConsoleColor.White;
             foe.healthCheck();
             return dmg;
@@ -57,7 +59,7 @@ namespace TextRPG
         public void healthCheck(){
             if(this.health <= 0){
                 Console.ForegroundColor = ConsoleColor.Red;
-                System.Console.WriteLine(this.name + " DIED!");
+                Console.WriteLine(this.name + " DIED!");
                 Console.ForegroundColor = ConsoleColor.White;
                 Program.players.Remove(this);
             }

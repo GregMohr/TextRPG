@@ -12,6 +12,13 @@ namespace TextRPG
         // public static List<Object> entities = new List<Object>();
         public static void Main(string[] args)
         {
+            // banner
+            Console.WriteLine("##############################");
+            Console.WriteLine("#                            #");
+            Console.WriteLine("#     A Journey Begins...    #");
+            Console.WriteLine("#                            #");
+            Console.WriteLine("##############################");
+            Console.WriteLine();            
             //init game objects
             Human jed = new Wizard("Jed");
             Human hank = new Ninja("Hank");
@@ -90,7 +97,23 @@ namespace TextRPG
                             }
                             System.Console.WriteLine();
                             System.Console.Write("Selection(1-" + player.playerActions.Count + "): ");
-                            int actionIdx = int.Parse(Console.ReadLine());//refactor to Console.Read
+                            // int actionIdx = int.Parse(Console.ReadLine());//refactor to Console.Read
+
+                            int actionIdx;           
+                            while(true){
+                                ConsoleKeyInfo result = Console.ReadKey(true);
+                                if ((result.KeyChar == '1') || (result.KeyChar == '2') || (result.KeyChar == '3'))//needs to adjust for fewer or more options
+                                {
+                                    var numVal = Char.GetNumericValue(result.KeyChar);
+                                    actionIdx = (int)numVal;
+                                    Console.WriteLine();            
+                                    break;
+                                }
+                                Console.WriteLine();            
+                            }     
+
+
+                            // actionIdx = Console.Read();//refactor to Console.Read
                             System.Console.WriteLine();
                             
                             var selectedAction = player.playerActions[actionIdx - 1].actionMethod;
@@ -111,11 +134,23 @@ namespace TextRPG
             } //game loop end
             if(players.Count > 0){
                 Console.ForegroundColor = ConsoleColor.Green;
-                System.Console.WriteLine("Players WIN!!!!");
+                Console.WriteLine();                  
+                Console.WriteLine("##############################");
+                Console.WriteLine("#                            #");
+                Console.WriteLine("#       Players WIN!!!!      #");
+                Console.WriteLine("#                            #");
+                Console.WriteLine("##############################");
+                Console.WriteLine();  
                 Console.ForegroundColor = ConsoleColor.White;
             } else {
                 Console.ForegroundColor = ConsoleColor.Red;
-                System.Console.WriteLine("Monsters WIN!!!!");     
+                Console.WriteLine();                  
+                Console.WriteLine("##############################");
+                Console.WriteLine("#                            #");
+                Console.WriteLine("#       Monsters WIN!!!      #");
+                Console.WriteLine("#                            #");
+                Console.WriteLine("##############################");
+                Console.WriteLine();  
                 Console.ForegroundColor = ConsoleColor.White;           
             }
             Console.Read();
