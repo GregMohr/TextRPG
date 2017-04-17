@@ -27,5 +27,25 @@ namespace TextRPG
                 Program.monsters.Remove(this);
             }
         }
+        public static void GenerateRandom(int qty){
+            Program.monsters.Clear();
+            string[] monsterTypes = {"Zombie", "Skeleton", "Spider"};
+            for(var i = 1; i <= qty; i++){
+                int pick = Program.randomNum.Next(0,3);
+                Monster newAdd = MakeMonster(monsterTypes[pick]);
+                Program.monsters.Add(newAdd);
+            }
+        }
+        public static Monster MakeMonster(string type){
+            if(type == "Zombie"){
+                return new Zombie();
+            } else if (type == "Skeleton"){
+                return new Skeleton();
+            } else if (type == "Spider"){
+                return new Spider();
+            } else {
+                return new Monster();
+            }
+        }
     }
 }

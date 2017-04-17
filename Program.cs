@@ -3,13 +3,12 @@ using System.Collections.Generic;
 
 namespace TextRPG
 {
-
     public class Program
     {// Potential additions: ; Adventure/Exploration/Puzzles;
      // Random Encounter generator; Loot; Inventory; Experience/Levelling
         public static List<Human> players = new List<Human>();      
         public static List<Monster> monsters = new List<Monster>();
-        // public static List<Object> entities = new List<Object>();
+        public static Random randomNum = new Random();
         public static void Main(string[] args)
         {
             // banner
@@ -19,150 +18,18 @@ namespace TextRPG
             Console.WriteLine("#                            #");
             Console.WriteLine("##############################");
             Console.WriteLine();
-            // Character generation
-            // auto-generate character
-            // You are in a town. You can...
-            // 1 - Adventure | 2 - Heal | 3 - Visit The Casino | 4 - Visit the Shop
-
-            // Randomize encounter sizes
-            // init encounter objects
-            Human jed = new Wizard("Jed");
-            Human hank = new Ninja("Hank");
-            Human frank = new Samurai("Frank");
-            players.Add(jed);
-            players.Add(hank);
-            players.Add(frank);
-
-            Monster zomzom = new Zombie();
-            Monster skelly = new Skeleton();
-            Monster spiddy = new Spider();
-            monsters.Add(zomzom);
-            monsters.Add(skelly);
-            monsters.Add(spiddy);
-            
-            //game loop          
-            while(players.Count > 0 && monsters.Count > 0){
-                // init turns (randomize order of monsters and players arrays? or maybe use dexterities? Give monster Dexterities?) 
-                List<Object> entities = new List<Object>();
-                Random rnd = new Random();
-                int toss = rnd.Next(0,20);
-                int mpIdx = 0;
-                if(toss % 2 == 0){
-                    //players go first
-                    while(mpIdx < players.Count && mpIdx < monsters.Count){
-                        entities.Add(players[mpIdx]);
-                        entities.Add(monsters[mpIdx]);
-                        mpIdx++;
-                    }
-                    while(mpIdx < players.Count){
-                        entities.Add(players[mpIdx]);
-                        mpIdx++;                    
-                    }
-                    while(mpIdx < monsters.Count){
-                        entities.Add(monsters[mpIdx]);                    
-                        mpIdx++;
-                    }
-                } else {
-                    //monsters go first
-                    while(mpIdx < players.Count && mpIdx < monsters.Count){
-                        entities.Add(monsters[mpIdx]);                    
-                        entities.Add(players[mpIdx]);
-                        mpIdx++;
-                    }
-                    while(mpIdx < players.Count){
-                        entities.Add(players[mpIdx]);
-                        mpIdx++;                    
-                    }
-                    while(mpIdx < monsters.Count){
-                        entities.Add(monsters[mpIdx]);                    
-                        mpIdx++;
-                    }
-                }
-                //execute round
-                foreach(object entity in entities){
-                    if(players.Count > 0 && monsters.Count > 0){
-                        if(entity is Human){
-                            var player = (Human)entity;
-                            
-                            if(player is Wizard){
-                                player = (Wizard)entity;
-                            } else if(player is Ninja) {
-                                player = (Ninja)entity;
-                            } else {
-                                player = (Samurai)entity;
-                            }
-                            if(!players.Contains(player)){
-                                continue;
-                            }
-                            //prompt user for action
-                            System.Console.WriteLine();
-                            System.Console.WriteLine(player.name + "(" + player.health + "), Please select action:");
-                            //player's actions menu
-                            foreach(PlayerAction pAction in player.playerActions){
-                                Console.Write(pAction.menuText);
-                            }
-                            System.Console.WriteLine();
-                            System.Console.Write("Selection(1-" + player.playerActions.Count + "): ");
-                            // int actionIdx = int.Parse(Console.ReadLine());//refactor to Console.Read
-
-                            int actionIdx;           
-                            while(true){
-                                ConsoleKeyInfo result = Console.ReadKey(true);
-                                if ((result.KeyChar == '1') || (result.KeyChar == '2') || (result.KeyChar == '3'))//needs to adjust for fewer or more options
-                                {
-                                    var numVal = Char.GetNumericValue(result.KeyChar);
-                                    actionIdx = (int)numVal;
-                                    Console.WriteLine();            
-                                    break;
-                                }
-                                Console.WriteLine();            
-                            }
-                            System.Console.WriteLine();
-                            
-                            var selectedAction = player.playerActions[actionIdx - 1].actionMethod;
-                            int healthMod = selectedAction();
-                        } else {
-                            if(monsters.Count > 0){
-                                var monster = (Monster)entity;
-                                if(!monsters.Contains(monster)){
-                                    continue;
-                                }
-                                Random rng = new Random();
-                                int idx = rng.Next(0,players.Count);
-                                int dmg = monster.Attack(players[idx]);
-                            }
-                        }
-                    }
-                }
-            } //game loop end
-            if(players.Count > 0){
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine();                  
-                Console.WriteLine("##############################");
-                Console.WriteLine("#                            #");
-                Console.WriteLine("#       Players WIN!!!!      #");
-                Console.WriteLine("#                            #");
-                Console.WriteLine("##############################");
-                Console.WriteLine();  
-                Console.ForegroundColor = ConsoleColor.White;
-            } else {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine();                  
-                Console.WriteLine("##############################");
-                Console.WriteLine("#                            #");
-                Console.WriteLine("#       Monsters WIN!!!      #");
-                Console.WriteLine("#                            #");
-                Console.WriteLine("##############################");
-                Console.WriteLine();  
-                Console.ForegroundColor = ConsoleColor.White;           
+            // As is often the case, it starts in a cave...
+            // With a dagger...
+            // And a torch...
+            // Character generation (auto-generate option)
+            // Player input for character name and class selection
+            // Random gneerate base stats
+            // Player division of free points
+            // Generate inventory
+            bool running = true;
+            while(running){
+                Town newPlace = new Town();
             }
-            Console.Read();
-        }
-        // public void Encounter(){
-
-        // }
-        // public void Shop(){
-
-        // }
+        }// Main end
     }
 }
